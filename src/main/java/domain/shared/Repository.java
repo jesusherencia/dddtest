@@ -1,4 +1,4 @@
-package shared;
+package domain.shared;
 
 import java.util.List;
 

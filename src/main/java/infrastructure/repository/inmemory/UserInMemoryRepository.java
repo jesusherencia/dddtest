@@ -1,24 +1,30 @@
-package infrastructure;
+package infrastructure.repository.inmemory;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import model.User;
-import repository.UserRepository;
+import domain.model.User;
+import domain.repository.UserRepository;
 
-public class InMemoryRepository implements UserRepository {
+public class UserInMemoryRepository implements UserRepository {
 
 	private List<User> list;
 	
-	public InMemoryRepository() {
+	public UserInMemoryRepository() {
 		super();
-		list.add(new User(1, "a", "A", 10));
-		list.add(new User(2, "b", "B", 20));
+		list = new ArrayList<User>();
+		list.add(new User("a", "A", 10));
+		list.add(new User("b", "B", 20));
 		// TODO Auto-generated constructor stub
 	}
 
 	public User findById(Integer id) {
 		// TODO Auto-generated method stub
+		for (User u : list) {
+			if(u.getUserId().equals(id)) {
+				return u;
+			}
+		}
 		return null;
 	}
 
@@ -29,12 +35,14 @@ public class InMemoryRepository implements UserRepository {
 
 	public User add(User t) {
 		// TODO Auto-generated method stub
-		return null;
+		list.add(t);
+		return t;
 	}
 
 	public boolean remove(User t) {
 		// TODO Auto-generated method stub
-		return false;
+		list.remove(t);
+		return true;
 	}
 
 }

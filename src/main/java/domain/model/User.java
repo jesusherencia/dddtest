@@ -1,4 +1,4 @@
-package model;
+package domain.model;
 
 public class User {
 
@@ -9,10 +9,15 @@ public class User {
 	private String lastName;
 	
 	private Integer age;
-
-	public User(Integer userId, String name, String lastName, Integer age) {
+	
+	private Role role;
+	
+	public User() {
 		super();
-		this.userId = userId;
+	}
+
+	public User(String name, String lastName, Integer age) {
+		super();
 		this.name = name;
 		this.lastName = lastName;
 		this.age = age;
@@ -22,7 +27,7 @@ public class User {
 		return userId;
 	}
 
-	public void setUserId(Integer userId) {
+	private void setUserId(Integer userId) {
 		this.userId = userId;
 	}
 
@@ -30,7 +35,7 @@ public class User {
 		return name;
 	}
 
-	public void setName(String name) {
+	private void setName(String name) {
 		this.name = name;
 	}
 
@@ -38,7 +43,7 @@ public class User {
 		return lastName;
 	}
 
-	public void setLastName(String lastName) {
+	private void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
 
@@ -46,10 +51,18 @@ public class User {
 		return age;
 	}
 
-	public void setAge(Integer age) {
+	private void setAge(Integer age) {
 		this.age = age;
 	}
 	
+	public Role getRole() {
+		return role;
+	}
+
+	private void setRole(Role role) {
+		this.role = role;
+	}
+
 	@Override
 	public boolean equals(final Object o){
 		if (this == o) {
